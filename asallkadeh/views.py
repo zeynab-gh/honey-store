@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def members(request):
-    return render(request, 'home.html')
+    return render(request, 'index.html')

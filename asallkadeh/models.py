@@ -24,8 +24,8 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=500,default='', blank=True, null=True)
-    price = models.DecimalField(max_digits=12,decimal_places=2)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=12,decimal_places=0)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,default=1)
     picture = models.ImageField(upload_to='upload/product/')
 
     def __str__(self):
@@ -39,7 +39,7 @@ class Order(models.Model):
     quntity = models.IntegerField(default=1)
     address = models.CharField(max_length=500, blank=False, default='')
     phone = models.CharField(max_length=200, blank=False)
-   # date = models.DateField(default=datetime.datetime.now())
+    date = models.DateField(default=datetime.datetime.now())
     statuse = models.BooleanField(default=False)
 
     def __str__(self):
